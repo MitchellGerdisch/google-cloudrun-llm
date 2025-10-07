@@ -1,0 +1,4 @@
+environment:
+  - cloud-access/gcp-access
+config:
+  gcp:project: pulumi-ce-team

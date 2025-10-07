@@ -1,0 +1,17 @@
+# Alternative: Using environment variables to auto-pull model
+# Add this to your container's envs array in the ollama service:
+
+"envs": [
+    {
+        "name": "OLLAMA_MODELS",
+        "value": "/root/.ollama/models"
+    },
+    {
+        "name": "OLLAMA_HOST", 
+        "value": "0.0.0.0:11434"
+    }
+],
+
+# Then add a startup command to pull the model:
+"command": ["/bin/sh"],
+"args": ["-c", "ollama serve & sleep 10 && ollama pull gemma2:2b && wait"]
